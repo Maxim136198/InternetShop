@@ -1,37 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="">
 </head>
 <body>
-<form>
-    <b><h1 align="center">Программа по определению величины таможенных сборов</h1></b>
-    <p align="center">Данный курсовой проект был реализован на примере Таможенного калькулятора по расчету стоимости ввозимых автомобилей на территорию Беларуси</p>
-    <p align="center">В курсовом проекте использовались следующие технологии: Spring Security, Spring MVC, Spring Data, MySQL, Thymeleaf, Bootstrap, Spring, Hibernate</p>
-</form>
+<form th:method="POST">
 
-<div class="btn-group d-flex justify-content-center mt-3" role="group" aria-label="Basic example">
-    <div sec:authorize="hasRole('ROLE_ADMIN')"><a href="/user/allUsers">
-        <button type="button" class="btn btn-outline-primary">Все пользователи</button>
-    </a></div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')"><a href="/role/allRoles">
-        <button type="button" class="btn btn-outline-primary">Все роли</button>
-    </a></div>
-    <a href="/calculate">
-        <button type="button" class="btn btn-outline-primary">Калькулятор растаможки</button>
-    </a>
-    <div sec:authorize="hasRole('ROLE_ADMIN')"><a href="/getAllCounting">
-        <button type="button" class="btn btn-outline-primary">Все расчеты</button>
-    </a></div>
-    <a href="/login">
-        <button type="button" class="btn btn-outline-primary">Войти</button>
-    </a>
-    <div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')"><a href="/logout">
-        <button type="button" class="btn btn-outline-primary">Выйти</button>
-    </a></div>
-</div>
-<script src="/js/bootstrap.bundle.min.js"></script>
+    <div>
+        <a th:href="@{/}"> Home </a>
+        <br>
+        <a th:href="@{/user/allUsers}"> List users </a>
+        <br>
+        <a th:href="@{/user/newUser}"> Registration </a>
+        <br>
+        <a th:href="@{/user/user-login}"> Sign in </a>
+
+        <a th:href="@{/user/show}"> Show User </a>
+
+        <a th:href="@{/user/create}"> Create User </a>
+    </div>
+
+
+</form>
 </body>
 </html>

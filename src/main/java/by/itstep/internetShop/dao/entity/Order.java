@@ -17,7 +17,7 @@ public class Order {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User customer;
 
-    @Column(name = "date_of_purchase", nullable = false)
+    @Column(name = "date_of_purchases", nullable = false)
     private LocalDateTime dateOfPurchase;
 
     @Column(name = "purchase_price")

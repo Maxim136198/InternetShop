@@ -36,7 +36,7 @@ public class UserControllerImpl implements UserController {
         model.addAttribute("allUsers", userService.findAll());
 //        System.out.println("111 : list = {}", userService.findAll());
 
-        return "allUsers";
+        return "user/allUsers";
     }
 
     @PostMapping("/{id}")
@@ -45,15 +45,28 @@ public class UserControllerImpl implements UserController {
         return "redirect:/user/allUsers";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/newUser")
     public String createUser(Model model) {
         model.addAttribute("newUser", new User());
-        return "createUser";
+        return "newUser";
     }
 
-    @PostMapping
+    @PostMapping()
     public String saveUser(@ModelAttribute("newUser") User user) {
         userService.save(user);
+        return "redirect:/user/allUsers";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "update-user";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") long id, @Valid User user, Model model) {
+        userService.updateUser(user);
         return "redirect:/user/allUsers";
     }
 

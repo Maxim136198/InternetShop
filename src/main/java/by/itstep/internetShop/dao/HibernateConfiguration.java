@@ -23,7 +23,7 @@ public class HibernateConfiguration {
                 .setProperty("hibernate.connection.driver_class", org.h2.Driver.class.getName())
                 .setProperty("hibernate.connection.url", "jdbc:h2:mem:InternetMarket")
                 .setProperty("hibernate.connection.username", "root")
-                .setProperty("hibernate.connection.password", "rootroot")
+                .setProperty("hibernate.connection.password", "password")
                 .setProperty("hibernate.hbm2ddl.auto", "create")
                 .setProperty("hibernate.show_sql", "true")
                 .setProperty("hibernate.format_sql", "true");
